@@ -49,6 +49,7 @@ const AddMovie = ({ movies, setMovies }) => {
             onChange={handleChange}
             placeholder="Enter movie title ..."
           />
+          {/* Description of the new movie */}
           <Form.Control
             type="text"
             className="modalInput"
@@ -72,6 +73,17 @@ const AddMovie = ({ movies, setMovies }) => {
             placeholder="Enter movie rating ..."
             min="1"
             max="5"
+          />
+          {/* the url of the new movie */}
+          <Form.Control
+            type="text"
+            className="modalInput"
+            // value={newImg}
+            // onChange={(e) => setNewImg(e.target.value)}
+            name="img"
+            value={newMovie.img}
+            onChange={handleChange}
+            placeholder="Enter movie image URL ..."
           />
 
           {/* Img url of the new movie */}
