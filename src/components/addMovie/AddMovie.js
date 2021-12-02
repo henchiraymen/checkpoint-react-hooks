@@ -83,7 +83,7 @@ const AddMovie = ({ movies, setMovies }) => {
             name="img"
             value={newMovie.img}
             onChange={handleChange}
-            placeholder="Enter movie image URL ..."
+            placeholder="Enter movie URL ..."
           />
 
           {/* Img url of the new movie */}
