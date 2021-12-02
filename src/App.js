@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+import Data from "./components/data/Data";
+import MovieList from "./components/movieList/MovieList";
+import FilterByTitle from "./components/filter/Filter";
+import Rating from "./components/Rating/Rating";
+import AddMovie from "./components/addMovie/AddMovie";
+import "./App.css";
 
 function App() {
+  const [movies, setMovies] = useState(Data);
+
+  // Title to search
+  const [title, setTitle] = useState("");
+  // Value of the rating on change ( to send to rating.js )
+  const [ratingValue, setRatingValue] = useState(0);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="filter">
+        <FilterByTitle title={title} setTitle={setTitle} />
+        <Rating
+          isFilter={true}
+          ratingValue={ratingValue}
+          setRatingValue={setRatingValue}
+        />
+      </div>
+      <AddMovie movies={movies} setMovies={setMovies} />
+      <MovieList movies={movies} title={title} ratingValue={ratingValue} />
     </div>
   );
 }
